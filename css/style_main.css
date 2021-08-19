@@ -32,6 +32,28 @@ input {
     justify-content: space-around;
     align-items: center;
     height: 100vh;
+    
+}
+
+.columna-principal {
+    display: flex;    
+    width: 30%;
+    max-width: 50%;
+    outline: 1px solid black;
+}
+
+
+.columna-secundaria {
+    width: 25%;
+    position: relative;
+    /*max-width: 25%;*/
+    outline: black solid 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.columna-secundaria img {
+    width: 100%;
 }
 
 
@@ -49,13 +71,17 @@ input {
     border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 40px;
     color: whitesmoke;
-    width: 300px;
+    width: 500px;
     padding: 20px;
     min-height: 370px;
-    height: 600px;
+    height: 800px;
     display: flex;
     justify-content: space-around;
     flex-direction: column;
+}
+
+.login__container h2 {
+    text-align: center;
 }
 
 .login__container--form {
