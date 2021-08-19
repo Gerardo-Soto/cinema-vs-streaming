@@ -1,0 +1,19 @@
+body {
+    margin: 0px;
+    background: linear-gradient( #8F57FD, turquoise);
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'PT Sans', sans-serif;
+    color: whitesmoke;
+}
+
+.header {
+    align-items: center;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    width: 100%;
+}
+
