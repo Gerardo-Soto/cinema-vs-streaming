@@ -58,6 +58,7 @@ function calcularCostoTotalDeStreaming() {
         (checkBoxFoxPremiun * sistemasStreaming[document.getElementById("FoxPremium").value]) +
         (checkBoxHboGo * sistemasStreaming[document.getElementById("HBOGo").value]) +
         (checkBoxNetflix * sistemasStreaming[document.getElementById("Netflix").value])
+        //  .valueAsNumber
     );
 
     console.log('Costo total es servisios de Streamimng: '+ costoTotal);
@@ -77,6 +78,38 @@ const onclickCalcularDiferencia = () => {
     } else if (costoDelStreaming > costoDelCine ) {
         restultado.innerText = 'Deberías de cancelar tantas suscripciones, y mejor ir al cine, te ahorrarías una lana.';
     } else {
-        restultado.innerText = 'Te encanta ver películas tanto que estas aprovechando las 2 opciones al máximo';
+        restultado.innerText = 'Te encanta ver películas tanto que estás aprovechando las 2 opciones al máximo';
     }
 }
+
+/*
+const inputCuantity = document.getElementById
+let ticketAmount;
+*/
+/*
+inputCuantity.addEventListener('change', function (params) {
+    ticketAmount = inputCuantity.value;
+});
+*/
+/*
+form.addEventListener('change', function (params) {
+    let ticketAmount;
+    
+    const ticketPrice = 2.15;
+    let subcriptionPrice = 0;
+    
+    ticketAmount = inputCuantity.value;
+
+    if (Netflix.checked){
+        subcriptionPrice += 4.25;
+    }
+    if (hbo.checked){
+        subcriptionPrice += 2.75;
+    }
+    if (disney.checked){
+        subcriptionPrice += 6.99;
+    }
+
+    const ticketFinalPrice = ticketPrice * 
+})
+*/
