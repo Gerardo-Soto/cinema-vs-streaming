@@ -1,3 +1,12 @@
+body {
+    margin: 0px;
+    background: linear-gradient( #8F57FD, turquoise);
+}
+
+* {
+    font-family: 'PT Sans', sans-serif;
+    color: whitesmoke;
+}
 
 .header {
     align-items: center;
@@ -26,7 +35,7 @@
     display: flex;    
     width: 40%;
     max-width: 50%;
-    outline: 1px solid black;
+    /*outline: 1px solid black;*/
 }
 
 
@@ -34,7 +43,7 @@
     width: 20%;
     position: relative;
     /*max-width: 25%;*/
-    outline: black solid 1px;
+    /*outline: black solid 1px;*/
     display: flex;
     justify-content: center;
 }
