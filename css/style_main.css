@@ -8,6 +8,14 @@ body {
     color: whitesmoke;
 }
 
+.header {
+    align-items: center;
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    width: 100%;
+}
+
 
 .imagen-lateral {
     border-radius: 50px;
@@ -27,7 +35,7 @@ body {
     display: flex;    
     width: 40%;
     max-width: 50%;
-    
+    /*outline: 1px solid black;*/
 }
 
 
@@ -35,7 +43,7 @@ body {
     width: 20%;
     position: relative;
     /*max-width: 25%;*/
-    
+    /*outline: black solid 1px;*/
     display: flex;
     justify-content: center;
 }
