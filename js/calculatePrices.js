@@ -66,5 +66,17 @@ function calcularCostoTotalDeStreaming() {
 }
 
 const onclickCalcularDiferencia = () => {
-    
+    const costoDelCine = calcularCostoTotalParaElCine();
+    const costoDelStreaming = calcularCostoTotalDeStreaming();
+    const restultado = document.getElementById("resultado");
+
+    console.log(costoDelCine, costoDelStreaming);
+
+    if (costoDelStreaming < costoDelCine) {
+        restultado.innerText = 'Sigue con tus suscripciones, te es más barato que ir al cine.';
+    } else if (costoDelStreaming > costoDelCine ) {
+        restultado.innerText = 'Deberías de cancelar tantas suscripciones, y mejor ir al cine, te ahorrarías una lana.';
+    } else {
+        restultado.innerText = 'Te encanta ver películas tanto que estas aprovechando las 2 opciones al máximo';
+    }
 }

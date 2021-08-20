@@ -27,7 +27,7 @@ body {
     display: flex;    
     width: 40%;
     max-width: 50%;
-    outline: 1px solid black;
+    
 }
 
 
@@ -35,7 +35,7 @@ body {
     width: 20%;
     position: relative;
     /*max-width: 25%;*/
-    outline: black solid 1px;
+    
     display: flex;
     justify-content: center;
 }
