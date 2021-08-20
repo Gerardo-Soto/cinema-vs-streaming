@@ -20,28 +20,89 @@
             <section class="login__container">
                 <h2 tabindex="0">¡Aquí puede ver que sistema de entretenimiento te conviene!</h2>
                 <form class="login__container--form" action="">
-                    <input class="input" type="text" placeholder="Correo" aria-label="Correo">
-                    <input class="input" type="password" placeholder="Contraseña" aria-label="Contraseña">
-                    <button class="button">Iniciar sesión</button>
-                    <div class="login__container--remember-me">
-                        <label class="login__container--label">
-                            <input class="login__container--checkbox" type="checkbox" name="" id="checkbox" value="checkbox" /><p>Recuerdame</p>
-                        </label>
-                        <a href="">Olvidé mi contraseña</a>
-                        
-                    </div>
-                </form>
-                <section class="login__container--social-media">
-                    <div><img src="https://img.icons8.com/fluent-systems-regular/48/ffffff/google-logo.png" alt="Cuenta de Google"><p>Inicia sesión con Google</p></div>
-                    <div><img src="https://img.icons8.com/ios/50/ffffff/twitter--v1.png" alt="Cuenta de Twitter"><p>Inicia sesión con Twitter</p></div>
-                </section>
-                <section class="login__container--registrate">
-                    <p>No tienes una cuenta, <a href="">Regístrate!</a></p>
-                </section>
-            </section>
-        </section>
+                    <h3>Contesta las siguientes preguntas para analizar los costos de cada sistema</h3>
 
+                    <section class="sistemaStreaming">
+                        <label for="numeroPersonas">¿Con cuántas personas sueles ver una pelicula al mes? (contándote a ti)</label>
+                        <input type="number" id="numeroPersonas" name="" placeholder="Ej: 2">
+                    </section>
+                    <section class="sistemaStreaming">
+                        <label for="numeroPeliculasAlMes">¿Cuántas peliculas sueles ver al mes?</label>
+                        <input type="number" id="numeroPeliculas" name="numeroPeliculas" placeholder="Ej: 5">
+                    </section>
+                    <section class="sistemaStreaming">
+                        <label for="">De los siguientes sistemas de Streaming ¿En cuáles estas suscrito?</label>
+                    </section>
+
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="AmazonVideo" name="AmazonVideo" value="Amazon Video">
+                        <label for="AmazonVideo">Amazon Video ($99 MXN)</label>
+                    </section>
+
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="AppleTV+" name="AppleTV+" value="Apple TV+">
+                        <label for="AppleTV+">Apple TV+ ($69 MXN) (Gratis con productos Apple)</label>
+                    
+                    </section>
+
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="Blim" name="Blim" value="Blim">
+                        <label for="Blim">Blim ($109 MXN) (Gratis con IZZI)</label>
+                    
+                    </section>
+                    
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="ClaroVideo" name="ClaroVideo" value="Claro Video">
+                        <label for="ClaroVideo">Claro Video ($99 MXN) (Gratis con Telmex/Telcel)</label>
+                    
+                    </section>
+                    
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="DAZN" name="DAZN" value="DAZN">
+                        <label for="DAZN">DAZN ($45 MXN)</label>
+                    
+                    </section>
+                    
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="Disney" name="Disney" value="Disney">
+                        <label for="Disney">Disney+ ($141 MXN) ($6.99 DLS)</label>
+                    
+                    </section>
+                    
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="FoxPremium" name="FoxPremium" value="Fox Premium">
+                        <label for="FoxPremium">Fox Premium ($139 MXN)</label>
+                        
+                    </section>
+                    
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="HBOGo" name="HBOGo" value="HBO Go">
+                        <label for="HBOGo">HBO Go ($149 MXN)</label>
+                    
+                    </section>
+                    
+                    <section class="sistemaStreaming">
+                        <input type="checkbox" id="Netflix" name="Netflix" value="Netflix">
+                        <label for="Netflix">Netflix (De $129)</label>
+                        <input type="number" id="NetflixUser" placeholder="Otro plan $">
+                    </section>
+                    
+                    <section class="sistemaStreaming">
+                        <p>Costo promedio de un boleto (en México): $56 MXN ($2.77 DLS)</p>
+                        <input type="number" id="nuevoPrecioBoleto" class="nuevoPrecioBoleto" name="" placeholder="Cambiar precio. Ej: 75 (en MXN)">
+                    </section>
+                    <section class="sistemaStreaming btnCalcular">
+                        <button type="button" onclick="onclickCalcularDiferencia()">Calcular</button>
+                    </section>
+
+                </form>
+                <section>
+                    <p>Resultado:</p>
+                </section>
+                </section>
+        </section>
         <section class="columna-secundaria">
+
             <img class="imagen-lateral" src="img/sillon.jpeg" alt="sillon">
         </section>
 
