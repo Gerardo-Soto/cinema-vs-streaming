@@ -1,6 +1,8 @@
 body {
     margin: 0px;
     background: linear-gradient( #8F57FD, turquoise);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 * {
@@ -182,4 +184,26 @@ body {
 
 .login__container--registrate a:hover {
     text-decoration: underline;
+}
+
+.netflixPlan {
+    background-color: transparent;
+    border: none;
+
+}
+
+.netflixPlan {
+  background-color: rgb(18, 197, 143);
+}
+
+/* Style the arrow inside the select element: */
+.netflixPlan:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
 }

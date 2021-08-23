@@ -29,7 +29,7 @@
                         <input type="number" id="numeroPersonas" name="" placeholder="Ej: 2">
                     </section>
                     <section class="sistemaStreaming">
-                        <label for="numeroPeliculasAlMes">¿Cuántas peliculas sueles ver al mes?</label>
+                        <label for="numeroPeliculas">¿Cuántas peliculas sueles ver al mes?</label>
                         <input type="number" id="numeroPeliculas" name="numeroPeliculas" placeholder="Ej: 5">
                     </section>
                     <section class="sistemaStreaming">
@@ -85,8 +85,13 @@
                     
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="Netflix" name="Netflix" value="Netflix">
-                        <label for="Netflix">Netflix (De $129)</label>
-                        <input type="number" id="NetflixUser" placeholder="Otro plan $">
+                        <label for="Netflix">Netflix Tipo de plan</label>
+                        <!-- <input type="number" id="NetflixUser" placeholder="Otro plan $"> -->
+                        <select name="netflixPlan" id="netflixPlan" class="netflixPlan">
+                            <option value="Netflix Basic" selected>Básico ($139 MXN)</option>
+                            <option value="Netflix Standar">Estándar ($196 MXN)</option>
+                            <option value="Netflix Premium">Premium ($266 MXN)</option>
+                        </select>
                     </section>
                     
                     <section class="sistemaStreaming">

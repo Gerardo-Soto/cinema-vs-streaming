@@ -9,7 +9,9 @@ const sistemasStreaming = {
     'Disney': 141,
     'Fox Premium': 139,
     'HBO Go': 149,
-    'Netflix': 129,
+    'Netflix Basic': 139,
+    'Netflix Standar': 196,
+    'Netflix Premium': 266,
 };
 
 const costoDelBoleto = 56;
@@ -33,15 +35,23 @@ function calcularCostoTotalParaElCine() {
 
 
 function calcularCostoTotalDeStreaming() {
-    const checkBoxAmazonVideo = document.getElementById("AmazonVideo").checked;
-    const checkBoxAppleTV  = document.getElementById("AppleTV+").checked;
-    const checkBoxBlim = document.getElementById("Blim").checked;
-    const checkBoxClaroVideo = document.getElementById("ClaroVideo").checked;
-    const checkBoxDazn = document.getElementById("DAZN").checked;
-    const checkBoxDisney = document.getElementById("Disney").checked;
-    const checkBoxFoxPremiun = document.getElementById("FoxPremium").checked;
-    const checkBoxHboGo = document.getElementById("HBOGo").checked;
-    const checkBoxNetflix = document.getElementById("Netflix").checked;
+    const checkBoxAmazonVideo = document.getElementById("AmazonVideo").checked ? 1 : 0;
+    const checkBoxAppleTV = document.getElementById("AppleTV+").checked ? 1 : 0;
+    const checkBoxBlim = document.getElementById("Blim").checked ? 1 : 0;
+    const checkBoxClaroVideo = document.getElementById("ClaroVideo").checked ? 1 : 0;
+    const checkBoxDazn = document.getElementById("DAZN").checked ? 1 : 0;
+    const checkBoxDisney = document.getElementById("Disney").checked ? 1 : 0;
+    const checkBoxFoxPremiun = document.getElementById("FoxPremium").checked ? 1 : 0;
+    const checkBoxHboGo = document.getElementById("HBOGo").checked ? 1 : 0;
+    const checkBoxNetflix = document.getElementById("Netflix").checked ? 1 : 0;
+
+    let netflixPrice = 0;
+
+    const netflixPlanSelected = document.getElementById("netflixPlan").value;
+    if (checkBoxNetflix) {
+        netflixPrice = sistemasStreaming[netflixPlanSelected];
+    }
+    console.log('nuevo precio de N:' + netflixPrice);
 
     console.log(checkBoxAmazonVideo, checkBoxAppleTV, checkBoxBlim, checkBoxClaroVideo, checkBoxDazn, checkBoxDisney, checkBoxFoxPremiun, checkBoxHboGo, checkBoxNetflix);
 
@@ -57,7 +67,7 @@ function calcularCostoTotalDeStreaming() {
         (checkBoxDisney * sistemasStreaming[document.getElementById("Disney").value]) +
         (checkBoxFoxPremiun * sistemasStreaming[document.getElementById("FoxPremium").value]) +
         (checkBoxHboGo * sistemasStreaming[document.getElementById("HBOGo").value]) +
-        (checkBoxNetflix * sistemasStreaming[document.getElementById("Netflix").value])
+        (checkBoxNetflix * netflixPrice)
         //  .valueAsNumber
     );
 
@@ -66,19 +76,20 @@ function calcularCostoTotalDeStreaming() {
     return costoTotal;
 }
 
+
 const onclickCalcularDiferencia = () => {
     const costoDelCine = calcularCostoTotalParaElCine();
     const costoDelStreaming = calcularCostoTotalDeStreaming();
     const restultado = document.getElementById("resultado");
 
-    console.log(costoDelCine, costoDelStreaming);
+    console.log(costoDelCine , costoDelStreaming);
 
     if (costoDelStreaming < costoDelCine) {
-        restultado.innerText = 'Sigue con tus suscripciones, te es más barato que ir al cine.';
+        restultado.innerText = `Sigue con tus suscripciones, te es más barato que ir al cine. Costo de suscripciones: ${costoDelStreaming} Costo del cine: ${costoDelCine}`;
     } else if (costoDelStreaming > costoDelCine ) {
-        restultado.innerText = 'Deberías de cancelar tantas suscripciones, y mejor ir al cine, te ahorrarías una lana.';
+        restultado.innerText = `Deberías de cancelar tantas suscripciones, y mejor ir al cine, te ahorrarías una lana. Costo de suscripciones: ${costoDelStreaming} Costo del cine: ${costoDelCine}`;
     } else {
-        restultado.innerText = 'Te encanta ver películas tanto que estás aprovechando las 2 opciones al máximo';
+        restultado.innerText = `Te encanta ver películas tanto que estás aprovechando las 2 opciones al máximo, Costo de suscripciones: ${costoDelStreaming} Costo del cine: ${costoDelCine}`;
     }
 }
 
