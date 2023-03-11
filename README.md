@@ -6,3 +6,5 @@
 - Crear el archivo de JavaScript para las funciones
 - Crear el archivo de los estilos
 
+Pagina del sitio:
+https://gerardo-soto.github.io/cinema-vs-streaming/
