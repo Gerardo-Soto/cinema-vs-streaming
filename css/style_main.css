@@ -37,7 +37,7 @@ body {
     display: flex;    
     width: 40%;
     max-width: 50%;
-    padding-top: 10%;
+    padding-top: 10px;
     /*outline: 1px solid black;*/
 }
 
@@ -63,6 +63,11 @@ body {
     .columna-principal {
         width: 90%;
         max-width: 95%;
+    }
+
+    footer {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -231,4 +236,33 @@ body {
 
 .result {
     color: indigo;
+}
+
+.my-footer {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    padding: 20px;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 80px;
+    
+}
+  
+.my-footer p {
+    margin: 0;
+}
+  
+.my-footer a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.my-footer a:hover {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
 }
