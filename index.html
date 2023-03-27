@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style_main.css">
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.css">
+    <link rel="shortcut icon" href="https://firebasestorage.googleapis.com/v0/b/platzivideo-gerard.appspot.com/o/icons8-pel%C3%ADcula-50.png?alt=media&token=9482c35b-554b-4cd1-8e4f-d5ff4abb0833" type="image/x-icon">
     <title>C vs S</title>
 </head>
 <body>
@@ -20,20 +22,21 @@
 
         <section class="columna-principal">
             <section class="login__container">
-                <h2 tabindex="0">¡Aquí puede ver que sistema de entretenimiento te conviene!</h2>
+                <h2 tabindex="0">Here you can see which entertainment system is right for you!</h2>
+                <br>
                 <form class="login__container--form" action="">
-                    <h3>Contesta las siguientes preguntas para analizar los costos de cada sistema</h3>
+                    <h4>Answer the following questions to analyze the costs of each entertainment system:</h4>
 
                     <section class="sistemaStreaming">
-                        <label for="numeroPersonas">¿Con cuántas personas sueles ver una pelicula al mes? (contándote a ti)</label>
+                        <label for="numeroPersonas">How many people do you usually watch a movie with per month (counting yourself)?</label>
                         <input type="number" id="numeroPersonas" name="" placeholder="Ej: 2">
                     </section>
                     <section class="sistemaStreaming">
-                        <label for="numeroPeliculasAlMes">¿Cuántas peliculas sueles ver al mes?</label>
+                        <label for="numeroPeliculas">How many movies do you usually watch per month?</label>
                         <input type="number" id="numeroPeliculas" name="numeroPeliculas" placeholder="Ej: 5">
                     </section>
                     <section class="sistemaStreaming">
-                        <label for="">De los siguientes sistemas de Streaming ¿En cuáles estas suscrito?</label>
+                        <label for="">Which of the following Streaming systems do you subscribe to?</label>
                     </section>
 
                     <section class="sistemaStreaming">
@@ -43,50 +46,48 @@
 
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="AppleTV+" name="AppleTV+" value="Apple TV+">
-                        <label for="AppleTV+">Apple TV+ ($69 MXN) (Gratis con productos Apple)</label>
-                    
+                        <label for="AppleTV+">Apple TV+ ($69 MXN) (Free with Apple products)</label>
                     </section>
 
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="Blim" name="Blim" value="Blim">
-                        <label for="Blim">Blim ($109 MXN) (Gratis con IZZI)</label>
-                    
+                        <label for="Blim">Blim ($109 MXN) (Free with IZZI)</label>
                     </section>
                     
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="ClaroVideo" name="ClaroVideo" value="Claro Video">
-                        <label for="ClaroVideo">Claro Video ($99 MXN) (Gratis con Telmex/Telcel)</label>
-                    
+                        <label for="ClaroVideo">Claro Video ($99 MXN) (Free with Telmex/Telcel)</label>
                     </section>
                     
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="DAZN" name="DAZN" value="DAZN">
                         <label for="DAZN">DAZN ($45 MXN)</label>
-                    
                     </section>
                     
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="Disney" name="Disney" value="Disney">
                         <label for="Disney">Disney+ ($141 MXN) ($6.99 DLS)</label>
-                    
                     </section>
                     
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="FoxPremium" name="FoxPremium" value="Fox Premium">
                         <label for="FoxPremium">Fox Premium ($139 MXN)</label>
-                        
                     </section>
                     
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="HBOGo" name="HBOGo" value="HBO Go">
                         <label for="HBOGo">HBO Go ($149 MXN)</label>
-                    
                     </section>
                     
                     <section class="sistemaStreaming">
                         <input type="checkbox" id="Netflix" name="Netflix" value="Netflix">
-                        <label for="Netflix">Netflix (De $129)</label>
-                        <input type="number" id="NetflixUser" placeholder="Otro plan $">
+                        <label for="Netflix">Netflix Tipo de plan</label>
+                        <!-- <input type="number" id="NetflixUser" placeholder="Otro plan $"> -->
+                        <select name="netflixPlan" id="netflixPlan" class="netflixPlan">
+                            <option value="Netflix Basic" selected>Basic ($139 MXN)</option>
+                            <option value="Netflix Standar">Standard ($196 MXN)</option>
+                            <option value="Netflix Premium">Premium ($266 MXN)</option>
+                        </select>
                     </section>
                     
                     <section class="sistemaStreaming">
@@ -94,14 +95,21 @@
                         <input type="number" id="nuevoPrecioBoleto" class="nuevoPrecioBoleto" name="" placeholder="Cambiar precio. Ej: 75 (en MXN)">
                     </section>
                     <section class="sistemaStreaming btnCalcular">
+                        <!--
                         <button type="button" onclick="onclickCalcularDiferencia()">Calcular</button>
+                        -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#calculate" onclick="onclickCalcularDiferencia()">
+                            Calculate data
+                        </button>
                     </section>
 
                 </form>
+                <!--
                 <section>
                     <p id="resultado">Resultado:</p>
                 </section>
-                </section>
+            -->
+            </section>
         </section>
         <section class="columna-secundaria">
 
@@ -111,6 +119,27 @@
     </section>
 
     <footer></footer>
+
+    <div class="modal fade" id="calculate" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Results</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="result" id="resultado">Resultado:</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./js/calculatePrices.js"></script>
+    <script src="./js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
 </body>
 </html>

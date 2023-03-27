@@ -9,44 +9,64 @@ const sistemasStreaming = {
     'Disney': 141,
     'Fox Premium': 139,
     'HBO Go': 149,
-    'Netflix': 129,
+    'Netflix Basic': 139,
+    'Netflix Standar': 196,
+    'Netflix Premium': 266,
 };
 
 const costoDelBoleto = 56;
 
 
 function calcularCostoTotalParaElCine() {
-    const numeroDePersonasViendoPeliculasAlMes = document.getElementById("numeroPersonas").value;
-    const peliculasAlMes = document.getElementById("numeroPeliculas").value;
-    const cambioPrecioDelBoleto = document.getElementById("nuevoPrecioBoleto").value;
-    
+    let numeroDePersonasViendoPeliculasAlMes = document.getElementById("numeroPersonas").value;
+    if (!numeroDePersonasViendoPeliculasAlMes) {
+        numeroDePersonasViendoPeliculasAlMes = 2;
+    };
+
+    let peliculasAlMes = document.getElementById("numeroPeliculas").value;
+    if (!peliculasAlMes) {
+        peliculasAlMes = 5;
+    };
+
+    let cambioPrecioDelBoleto = document.getElementById("nuevoPrecioBoleto").value;
+    if (!cambioPrecioDelBoleto) {
+        cambioPrecioDelBoleto = 75;
+    };
 
     var costoTotalParaElCine = numeroDePersonasViendoPeliculasAlMes * peliculasAlMes * costoDelBoleto;
     
     if (cambioPrecioDelBoleto != "") {
         costoTotalParaElCine = parseInt(numeroDePersonasViendoPeliculasAlMes) * parseInt(peliculasAlMes) * parseInt(cambioPrecioDelBoleto);
-    } 
+    };
     //console.log(numeroDePersonasViendoPeliculasAlMes, peliculasAlMes, costoDelBoleto);
     //console.log('Costo total al mes: ' + costoTotalParaElCine);
     return costoTotalParaElCine;
-}
+};
 
 
 function calcularCostoTotalDeStreaming() {
-    const checkBoxAmazonVideo = document.getElementById("AmazonVideo").checked;
-    const checkBoxAppleTV  = document.getElementById("AppleTV+").checked;
-    const checkBoxBlim = document.getElementById("Blim").checked;
-    const checkBoxClaroVideo = document.getElementById("ClaroVideo").checked;
-    const checkBoxDazn = document.getElementById("DAZN").checked;
-    const checkBoxDisney = document.getElementById("Disney").checked;
-    const checkBoxFoxPremiun = document.getElementById("FoxPremium").checked;
-    const checkBoxHboGo = document.getElementById("HBOGo").checked;
-    const checkBoxNetflix = document.getElementById("Netflix").checked;
+    const checkBoxAmazonVideo = document.getElementById("AmazonVideo").checked ? 1 : 0;
+    const checkBoxAppleTV = document.getElementById("AppleTV+").checked ? 1 : 0;
+    const checkBoxBlim = document.getElementById("Blim").checked ? 1 : 0;
+    const checkBoxClaroVideo = document.getElementById("ClaroVideo").checked ? 1 : 0;
+    const checkBoxDazn = document.getElementById("DAZN").checked ? 1 : 0;
+    const checkBoxDisney = document.getElementById("Disney").checked ? 1 : 0;
+    const checkBoxFoxPremiun = document.getElementById("FoxPremium").checked ? 1 : 0;
+    const checkBoxHboGo = document.getElementById("HBOGo").checked ? 1 : 0;
+    const checkBoxNetflix = document.getElementById("Netflix").checked ? 1 : 0;
 
-    console.log(checkBoxAmazonVideo, checkBoxAppleTV, checkBoxBlim, checkBoxClaroVideo, checkBoxDazn, checkBoxDisney, checkBoxFoxPremiun, checkBoxHboGo, checkBoxNetflix);
+    let netflixPrice = 0;
 
-    console.log(checkBoxAmazonVideo * sistemasStreaming[document.getElementById("AmazonVideo").value]);
-    console.log(checkBoxAppleTV * sistemasStreaming[document.getElementById("AppleTV+").value]);
+    const netflixPlanSelected = document.getElementById("netflixPlan").value;
+    if (checkBoxNetflix) {
+        netflixPrice = sistemasStreaming[netflixPlanSelected];
+    };
+    //console.log('nuevo precio de N:' + netflixPrice);
+
+    //console.log(checkBoxAmazonVideo, checkBoxAppleTV, checkBoxBlim, checkBoxClaroVideo, checkBoxDazn, checkBoxDisney, checkBoxFoxPremiun, checkBoxHboGo, checkBoxNetflix);
+
+    //console.log(checkBoxAmazonVideo * sistemasStreaming[document.getElementById("AmazonVideo").value]);
+    //console.log(checkBoxAppleTV * sistemasStreaming[document.getElementById("AppleTV+").value]);
 
     const costoTotal = (
         (checkBoxAmazonVideo * sistemasStreaming[document.getElementById("AmazonVideo").value]) +
@@ -57,26 +77,60 @@ function calcularCostoTotalDeStreaming() {
         (checkBoxDisney * sistemasStreaming[document.getElementById("Disney").value]) +
         (checkBoxFoxPremiun * sistemasStreaming[document.getElementById("FoxPremium").value]) +
         (checkBoxHboGo * sistemasStreaming[document.getElementById("HBOGo").value]) +
-        (checkBoxNetflix * sistemasStreaming[document.getElementById("Netflix").value])
+        (checkBoxNetflix * netflixPrice)
+        //  .valueAsNumber
     );
 
-    console.log('Costo total es servisios de Streamimng: '+ costoTotal);
+    //console.log('Costo total es servisios de Streamimng: '+ costoTotal);
 
     return costoTotal;
-}
+};
+
 
 const onclickCalcularDiferencia = () => {
     const costoDelCine = calcularCostoTotalParaElCine();
     const costoDelStreaming = calcularCostoTotalDeStreaming();
     const restultado = document.getElementById("resultado");
 
-    console.log(costoDelCine, costoDelStreaming);
+    console.log(costoDelCine , costoDelStreaming);
 
-    if (costoDelStreaming < costoDelCine) {
-        restultado.innerText = 'Sigue con tus suscripciones, te es más barato que ir al cine.';
-    } else if (costoDelStreaming > costoDelCine ) {
-        restultado.innerText = 'Deberías de cancelar tantas suscripciones, y mejor ir al cine, te ahorrarías una lana.';
+    if (costoDelStreaming - 10 < costoDelCine + 10) {
+        restultado.innerText = `Continue using your subscriptions, it's cheaper than going to the movies. Cost of subscriptions: $ ${costoDelStreaming}.00, cost of cinema: $ ${costoDelCine}.00`;
+    } else if (costoDelStreaming + 10 > costoDelCine - 10 ) {
+        restultado.innerText = `You should cancel so many subscriptions, and better go to the movies, you'll save a few bucks. Cost of subscriptions: $ ${costoDelStreaming}.00, cost of cinema: $ ${costoDelCine}.00`;
     } else {
-        restultado.innerText = 'Te encanta ver películas tanto que estas aprovechando las 2 opciones al máximo';
+        restultado.innerText = `You love watching movies so much that you are taking full advantage of the 2 options, Cost of subscriptions: $ ${costoDelStreaming}.00, cost of cinema: $ ${costoDelCine}.00`;
+    };
+};
+
+/*
+const inputCuantity = document.getElementById
+let ticketAmount;
+*/
+/*
+inputCuantity.addEventListener('change', function (params) {
+    ticketAmount = inputCuantity.value;
+});
+*/
+/*
+form.addEventListener('change', function (params) {
+    let ticketAmount;
+    
+    const ticketPrice = 2.15;
+    let subcriptionPrice = 0;
+    
+    ticketAmount = inputCuantity.value;
+
+    if (Netflix.checked){
+        subcriptionPrice += 4.25;
     }
-}
+    if (hbo.checked){
+        subcriptionPrice += 2.75;
+    }
+    if (disney.checked){
+        subcriptionPrice += 6.99;
+    }
+
+    const ticketFinalPrice = ticketPrice * 
+})
+*/

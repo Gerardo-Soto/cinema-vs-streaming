@@ -1,6 +1,8 @@
 body {
     margin: 0px;
     background: linear-gradient( #8F57FD, turquoise);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 * {
@@ -35,6 +37,7 @@ body {
     display: flex;    
     width: 40%;
     max-width: 50%;
+    padding-top: 10%;
     /*outline: 1px solid black;*/
 }
 
@@ -46,7 +49,23 @@ body {
     /*outline: black solid 1px;*/
     display: flex;
     justify-content: center;
+
+
 }
+
+@media only screen and (max-width: 1024px) {
+    .columna-secundaria {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .columna-principal {
+        width: 90%;
+        max-width: 95%;
+    }
+}
+
 
 .columna-secundaria img {
     width: 100%;
@@ -116,6 +135,7 @@ body {
 .btnCalcular {
     display: flex;
     justify-content: center;
+    
 }
 
 .login__container--form button {
@@ -182,4 +202,33 @@ body {
 
 .login__container--registrate a:hover {
     text-decoration: underline;
+}
+
+.netflixPlan {
+    border: none;
+    background-color: rgba(193, 172, 243, 0.6);
+    border-radius: 10px;
+
+}
+
+
+/* Style the arrow inside the select element: */
+.netflixPlan:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border-radius: 10px;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+.modal-title {
+    color: indigo;
+}
+
+.result {
+    color: indigo;
 }
