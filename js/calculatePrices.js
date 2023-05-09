@@ -30,16 +30,16 @@ function calcularCostoTotalParaElCine() {
 
     let cambioPrecioDelBoleto = document.getElementById("nuevoPrecioBoleto").value;
     if (!cambioPrecioDelBoleto) {
-        cambioPrecioDelBoleto = 75;
+        cambioPrecioDelBoleto = 56;
     };
 
     var costoTotalParaElCine = numeroDePersonasViendoPeliculasAlMes * peliculasAlMes * costoDelBoleto;
-    
     if (cambioPrecioDelBoleto != "") {
         costoTotalParaElCine = parseInt(numeroDePersonasViendoPeliculasAlMes) * parseInt(peliculasAlMes) * parseInt(cambioPrecioDelBoleto);
     };
     //console.log(numeroDePersonasViendoPeliculasAlMes, peliculasAlMes, costoDelBoleto);
     //console.log('Costo total al mes: ' + costoTotalParaElCine);
+    //console.log(`costoTotalParaElCine::: ${numeroDePersonasViendoPeliculasAlMes} * ${peliculasAlMes} * ${costoDelBoleto} = ${costoTotalParaElCine}`);
     return costoTotalParaElCine;
 };
 

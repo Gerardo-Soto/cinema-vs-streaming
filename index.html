@@ -28,12 +28,12 @@
                     <h4>Answer the following questions to analyze the costs of each entertainment system:</h4>
 
                     <section class="sistemaStreaming">
-                        <label for="numeroPersonas">How many people do you usually watch a movie with per month (counting yourself)?</label>
-                        <input type="number" id="numeroPersonas" name="" placeholder="e.g: 2">
+                        <label class="description" for="numeroPersonas">How many people do you usually watch a movie with per month (counting yourself)?</label>
+                        <input class="numeroPersonas" type="number" min="0" id="numeroPersonas" name="numeroPersonas" placeholder="e.g: 2">
                     </section>
                     <section class="sistemaStreaming">
                         <label for="numeroPeliculas">How many movies do you usually watch per month?</label>
-                        <input type="number" id="numeroPeliculas" name="numeroPeliculas" placeholder="e.j: 5">
+                        <input class="numeroPeliculas" type="number" min="0" id="numeroPeliculas" name="numeroPeliculas" placeholder="e.j: 5">
                     </section>
                     <section class="sistemaStreaming">
                         <label for="">Which of the following Streaming systems do you subscribe to?</label>
@@ -92,14 +92,14 @@
                     
                     <section class="sistemaStreaming">
                         <p>Average ticket cost (in Mexico): $56 MXN ($2.77 DLS)</p>
-                        <input type="number" id="nuevoPrecioBoleto" class="nuevoPrecioBoleto" name="" placeholder="Cambiar precio. Ej: 75 (en MXN)">
+                        <input type="number" min="0" id="nuevoPrecioBoleto" class="nuevoPrecioBoleto" name="nuevoPrecioBoleto" placeholder="Cambiar precio. Ej: 75 (en MXN)">
                     </section>
                     <section class="sistemaStreaming btnCalcular">
                         <!--
                         <button type="button" onclick="onclickCalcularDiferencia()">Calcular</button>
                         -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#calculate" onclick="onclickCalcularDiferencia()">
-                            Calculate data
+                        <button type="button" class="custom-btn btn-14" data-toggle="modal" data-target="#calculate" onclick="onclickCalcularDiferencia()">
+                            Calculate
                         </button>
                     </section>
 
